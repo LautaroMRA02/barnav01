@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="/style.e308ff8e.css">
     <title>Bar</title>
-</head>
+<script src="/style.e308ff8e.js"></script></head>
 <body>
     <div class="navigation">
         <ul>
@@ -88,30 +88,33 @@
 
 
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script nomodule="" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
-<script>
+<script>var menuToggle = document.querySelector('.toggle');
+var navigation = document.querySelector('.navigation');
 
-    let menuToggle = document.querySelector('.toggle');
-    let navigation = document.querySelector('.navigation');
-    menuToggle.onclick = function(){
-        menuToggle.classList.toggle('active')
-        navigation.classList.toggle('active')
+menuToggle.onclick = function () {
+  menuToggle.classList.toggle('active');
+  navigation.classList.toggle('active');
+};
+
+var list = document.querySelectorAll('.list');
+
+var _loop = function _loop(i) {
+  list[i].onclick = function () {
+    var j = 0;
+
+    while (j < list.length) {
+      list[j++].className = 'list';
     }
 
+    list[i].className = 'list active';
+  };
+};
 
-
-    let list = document.querySelectorAll('.list') 
-    for(let i=0; i<list.length; i++){
-        list[i].onclick = function(){
-            let j = 0;
-            while(j<list.length){
-                list[j++].className = 'list';
-            }
-            list[i].className = 'list active'
-        }
-    }
-</script>
+for (var i = 0; i < list.length; i++) {
+  _loop(i);
+}</script>
 
 </body>
 </html>
